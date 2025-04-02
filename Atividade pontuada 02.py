@@ -1,5 +1,4 @@
 #limpando o terminal
-
 import os
 os.system ("clear || cls")
 
@@ -56,8 +55,9 @@ Digite o código do seu pedido:
      #Armazendando os valores   
     total += valor
     pratos_escolhidos.append(f"{codigo} - {nome}")
+
     #Pedindo outros pratos 
-    outro_pedido = input("Deseja pedir algo mais? (digite 0 caso não queira e 1 para continuar.): ")  
+    outro_pedido = input("Deseja pedir algo mais? (digite 0 caso não queira ou pressione enter para continuar): ")  
 
     #Terminando o pedido
     if outro_pedido == "0":
@@ -68,7 +68,7 @@ Digite o código do seu pedido:
 forma_pagamento = int(input("""
 Forma de pagamento:
 CÓDIGO |      FORMA
-   1   |      Á vista 
+   1   |     À vista 
    2   |  Cartão de crédito
     
 Informe o código da forma de pagamento:  """))
@@ -77,21 +77,22 @@ Informe o código da forma de pagamento:  """))
 if forma_pagamento == 1:
     desconto = total * 0.10
     valor_pagar = total - desconto
+    nome_pagamento = "À vista"
 #calculando o acréscimo
 elif forma_pagamento == 2:
     desconto = total * 0.10 
     valor_pagar = total + desconto
+    nome_pagamento = "Cartão de credito"
 else: 
     print("Escolha 1 para pagamento á vista ou 2 para pagamento de cartão de credito.")
-    
+
 
 #exibindo resultados
 print("\n=== RESUMO DO PEDIDO ===")
 print("Pratos escolhidos:")
 for prato in pratos_escolhidos:
     print(prato)
-print (f"Pratos escolhidos: {junta_prato}")
-print (f"Forma de pagamento escolhida: {forma_pagamento}")
+print (f"Forma de pagamento escolhida: {nome_pagamento}")
 print (f"Subtotal: R${total:.2f}")
 print (f"Total do desconto ou acréscimo: R${desconto:.2f}")
 print (f"Valor final: R${valor_pagar:.2f}")
